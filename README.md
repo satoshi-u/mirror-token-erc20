@@ -1,9 +1,9 @@
-# mirror-token-erc20
+# Mirror Token
 
 Download and Install Ganache : https://www.trufflesuite.com/ganache
 
 Should have node.js & npm. If not, download here : https://nodejs.org/en/
-Instatll Truffle with npm :
+Install Truffle with npm :
 ```shell
 $ npm install truffle -g
 ```
@@ -25,7 +25,7 @@ development: {
 }
 ```
 
-Confirm that the host and port in this truffle-confiig.js is the same as in Gnaache UI
+Confirm that the host and port in this truffle-confiig.js is the same as in Ganache UI :
 ```shell
 RPC SERVER HTTP://127.0.0.1:7545 (defualt for me)
 ```

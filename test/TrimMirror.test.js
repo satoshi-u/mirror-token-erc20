@@ -16,6 +16,10 @@ contract('TrimMirror', (accounts) => {
         }).then(function (result) {
             result = result.replace("\u0000", ""); // removes NUL chars - need to debug behaviour : TODO
             assert.equal(result, "etheresesree", 'case #2 pass...');
+            return trimMirror.trimStringMirroringChars(["rome", "e", "more"]);
+        }).then(function (result) {
+            result = result.replace("\u0000", ""); // removes NUL chars - need to debug behaviour : TODO
+            assert.equal(result, "morrome", 'case #3 pass...');
         })
     })
 })

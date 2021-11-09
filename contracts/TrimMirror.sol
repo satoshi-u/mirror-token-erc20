@@ -27,6 +27,9 @@ contract TrimMirror {
     {
         bytes memory strBytes = bytes(str);
         bytes memory subStrBytes = bytes(subStr);
+        if (subStrBytes.length == 0) {
+            return str;
+        }
         string memory _newStr = new string(
             strBytes.length - subStrBytes.length
         );
@@ -39,22 +42,23 @@ contract TrimMirror {
                 uint256 _i = i + 1;
                 // EDGE CASE
                 if (_i == strBytes.length) {
-                    // reached end-  of main string - exit,
-                    if (i == subStrBytes.length) {
-                        //match
+                    // reached end-  of main string - need to exit,
+                    if (subStrBytes.length == 1) {
+                        // MATCH -> this works when the substr is just 1 letter and present at last of str (st, s)
                         return string(_newStrBytes);
                     } else {
-                        // no match
+                        // NO-MATCH -> this works when the substr is greater than 1 letter and first letter of substr matches last of str -false (museum mu)
                         _newStrBytes[i_new] = strBytes[i];
                         i_new++;
                         continue;
                     }
                 }
+
                 uint256 j = 1;
                 for (j = 1; j < subStrBytes.length; j++) {
                     if (strBytes[_i] == subStrBytes[j]) {
-                        _i++;
                         // match of subseq char -> check further
+                        _i++;
                     } else {
                         // match of subseq char failed -> return to where we left
                         break;
@@ -71,7 +75,7 @@ contract TrimMirror {
                     _newStrBytes[i_new] = strBytes[i];
                 }
             } else {
-                // No match
+                // No match of first char
                 // copy this i-th char into _newStr
                 _newStrBytes[i_new] = strBytes[i];
                 i_new++;

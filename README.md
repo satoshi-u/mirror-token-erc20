@@ -1,11 +1,43 @@
-# mirror-token-erc20
+# Mirror Token
 
-This is a truffle project.
+Download and Install Ganache : https://www.trufflesuite.com/ganache
 
-Clone the repo to your local.
+Should have node.js & npm. If not, download here : https://nodejs.org/en/
+Install Truffle with npm :
+```shell
+$ npm install truffle -g
+```
+Clone the repo to your local :
+```shell
+git clone https://github.com/satoshi-u/mirror-token-erc20.git
+```
 
-I use Gaanche as my local blockchain. Please install it if you don't have it already. You can edit the config in truffle.config.js to connect to any other network as well.
+Open Ganache UI (can work with cli too : https://www.trufflesuite.com/ganache).
+Do a QUICKSTART-ETHEREUM.
+This should start a blockchain in your local. 
 
-Run "truffle compile" to compile the contracts and get the artifacts & abis.
+Now open the truffle-config.js file at project root. It will have the following :
+```shell
+development: {
+      host: "127.0.0.1",
+      port: 7545,
+      network_id: "*"
+}
+```
 
-Run "truffle test" to run the tests and see the functionalities working.
+Confirm that the host and port in this truffle-confiig.js is the same as in Ganache UI :
+```shell
+RPC SERVER HTTP://127.0.0.1:7545 (defualt for me)
+```
+
+Now, you can compile the contracts (Works even without Ganache open) : 
+```shell
+$ truffle compile 
+```
+
+To test the contracts (Needs Ganache) :
+```shell
+$ truffle test
+```
+.
+

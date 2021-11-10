@@ -82,7 +82,7 @@ contract('MirTokenSale', (accounts) => {
             // Need to approve the delegates first as admin
             return mirToken.approve(delegate2, 100000, { from: admin });
         }).then(function () {
-            return mirTokenSale.participateInReward(["year", "ram"], { from: rewardee100 });
+            return mirTokenSale.participateInReward(["rome", "e", "more"], { from: rewardee100 });
         }).then(function (result) {
             assert.equal(result.receipt.status, true, 'rewardee100 added to list...');
             return mirTokenSale.participateInReward(["year", "electricity", "apple"], { from: rewardee1000 });

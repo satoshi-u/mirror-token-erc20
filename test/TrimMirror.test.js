@@ -11,7 +11,7 @@ contract('TrimMirror', (accounts) => {
             return trimMirror.trimStringMirroringChars(["year", "electricity", "apple"]);
         }).then(function (result) {
             result = result.replace("\u0000", ""); // removes NUL chars - need to debug behaviour : TODO
-            assert.equal(result, "appctricitear", 'case # pass...');
+            assert.equal(result, "appectricitear", 'case # pass...');
             return trimMirror.trimStringMirroringChars(["tree", "must", "museum", "ethereum"]);
         }).then(function (result) {
             result = result.replace("\u0000", ""); // removes NUL chars - need to debug behaviour : TODO
@@ -19,7 +19,7 @@ contract('TrimMirror', (accounts) => {
             return trimMirror.trimStringMirroringChars(["rome", "e", "more"]);
         }).then(function (result) {
             result = result.replace("\u0000", ""); // removes NUL chars - need to debug behaviour : TODO
-            assert.equal(result, "morrome", 'case #3 pass...');
+            assert.equal(result, "e", 'case #3 pass...');
         })
     })
 })
